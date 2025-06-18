@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Facebook Video Downloader",
+  "version": "1.0",
+  "description": "Download Facebook videos easily",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://*.facebook.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.facebook.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+} 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Icon</title>
+  <style>
+    .icon {
+      width: 128px;
+      height: 128px;
+      background-color: #1877f2;
+      border-radius: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 24px 0 24px 40px;
+      border-color: transparent transparent transparent white;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon"></div>
+  <script>
+    // Convert the icon to PNG
+    const icon = document.querySelector('.icon');
+    html2canvas(icon).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'icon.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  </script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</body>
+</html> 
